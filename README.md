@@ -1,6 +1,6 @@
 # Ex-5-RECOGNITION-OF-THE-GRAMMAR-anb-where-n-10-USING-YACC
 RECOGNITION OF THE GRAMMAR(anb where n>=10) USING YACC
-# Date:06.10.2025
+# Date:18.10.2025
 # Aim:
 To write a YACC program to recognize the grammar anb where n>=10.
 # ALGORITHM
@@ -13,25 +13,7 @@ To write a YACC program to recognize the grammar anb where n>=10.
 7.	Compile these with the C compiler as gcc lex.yy.c y.tab.c
 8.	Enter a string as input and it is identified as valid or invalid.
 # PROGRAM:
-## ex5.l
-```
-%{
-#include "y.tab.h"
-%}
-
-%%
-a   { return A; }
-b   { return B; }
-\n  { return '\n'; }
-.   { return yytext[0]; }
-%%
-
-int yywrap() {
-    return 1;
-}
-
-```
-## ex5.y
+expr5.y
 ```
 %{
 #include <stdio.h>
@@ -69,8 +51,27 @@ void yyerror(const char *msg) {
 }
 
 ```
-# OUTPUT:
-![image](https://github.com/user-attachments/assets/cf742b3e-6d3b-4d3c-870f-a995e1c1441c)
+expr5.l
+```
+%{
+#include "y.tab.h"
+%}
+
+%%
+a   { return A; }
+b   { return B; }
+\n  { return '\n'; }
+.   { return yytext[0]; }
+%%
+
+int yywrap() {
+    return 1;
+}
+
+```
+# OUTPUT
+<img width="963" height="522" alt="Screenshot 2025-10-06 061254" src="https://github.com/user-attachments/assets/5ea190b9-df5c-474a-9ba0-c40c007c09f3" />
+
 
 # RESULT
 The YACC program to recognize the grammar anb where n>=10 is executed successfully and the output is verified.
